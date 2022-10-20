@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting with GSAP</title>
+
+    <!-- GSAP CDN Resource ^v3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <!-- Anim Panel -->
+    <script type="text/javascript" src="http://sharedlibraries.danielhauchler.de/anim_panel_v2.js"></script>
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="w-80 h-80 bg-blue-800"></div>
+    <script>
+
+        // Repo
+        // https://github.com/danielhauchler/sae-convention-2022-web-animations
+        // https://greensock.com/gsap/
+
+        // variablen
+        const el = document.querySelector('div')
+
+        // timeline
+        const timeline = new gsap.timeline();
+
+        timeline.add('start')
+                .to(el, 2, {x:200, ease: Back.easeOut.config(2)}, 'start')
+                .to(el, 2, {y:200, ease: Back.easeOut.config(2)}, 'start')
+                .to(el, 2, {x:0})
+                .to(el, 2, {y:0})
+
+        // single tween
+        // gsap.to(el, 3, {x: 500, y: 500})
+
+        new AnimPanel(timeline);
+
+    </script>
+</body>
+</html>
